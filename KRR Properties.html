@@ -1,0 +1,357 @@
+<!--
+XYZ Property and Data Services
+Single-file starter website (HTML + CSS + JS)
+Instructions: Save this file as `index.html`. Open in a browser to preview.
+To split into separate files later, extract the <style> into styles.css and <script> into script.js.
+
+Temporary assets are linked from Unsplash placeholders. Replace with your own images.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>XYZ Property and Data Services</title>
+  <meta name="description" content="XYZ Property and Data Services — professional property & business management for estates, apartments and SMEs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    /* ====== Temporary branding palette ======
+       Dark Blue: #1D2D50
+       Light Blue: #187BCD
+       White: #FFFFFF
+       Soft Grey: #F5F5F5
+    */
+    :root{
+      --dark:#1D2D50;
+      --accent:#187BCD;
+      --white:#FFFFFF;
+      --muted:#F5F5F5;
+      --radius:12px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:'Lato',system-ui,Arial,sans-serif;background:var(--muted);color:#0b1430;line-height:1.5}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:24px}
+
+    /* Header */
+    header{background:linear-gradient(90deg,var(--dark),var(--accent));color:var(--white);padding:18px 0;border-bottom-left-radius:18px;border-bottom-right-radius:18px}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:52px;height:52px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav li a{color:rgba(255,255,255,0.95);font-weight:600}
+    .cta{background:var(--white);color:var(--dark);padding:10px 14px;border-radius:10px;font-weight:700}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px 0}
+    .hero h1{font-family:'Montserrat',sans-serif;font-size:34px;margin:0}
+    .hero p{margin-top:12px;color:rgba(255,255,255,0.9)}
+    .hero-card{background:var(--white);padding:22px;border-radius:14px;box-shadow:0 8px 30px rgba(8,20,40,0.08)}
+    .search-row{display:flex;gap:8px}
+    .search-row input{flex:1;padding:10px;border-radius:8px;border:1px solid #e6eef9}
+    .search-row button{background:var(--accent);color:var(--white);border:none;padding:10px 14px;border-radius:8px;font-weight:700}
+
+    /* sections */
+    section{padding:44px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--white);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(15,30,60,0.06)}
+    .card h3{margin-top:0}
+    .muted{color:#5b6b82}
+
+    /* properties */
+    .properties{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .prop img{width:100%;height:180px;object-fit:cover;border-radius:10px}
+    .prop .meta{display:flex;justify-content:space-between;margin-top:10px}
+
+    /* contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:28px}
+    form input,form textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #e6eef9;margin-bottom:12px}
+    form button{background:var(--accent);color:var(--white);border:none;padding:12px 16px;border-radius:10px;font-weight:700}
+
+    footer{padding:28px 0;text-align:center;color:#6b7280}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid,.properties{grid-template-columns:repeat(2,1fr)}
+      .container{padding:18px}
+    }
+    @media (max-width:640px){
+      nav ul{display:none}
+      .grid,.properties{grid-template-columns:1fr}
+      .hero h1{font-size:26px}
+      .hero{gap:12px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">XYZ</div>
+        <div>
+          <div style="font-weight:800;letter-spacing:0.2px">XYZ Property & Data Services</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.85)">Property • Business • Management</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#properties">Properties</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#contact">Get in touch</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div>
+        <h1>Professional property & business management — stress-free, transparent.</h1>
+        <p style="color:rgba(255,255,255,0.9);margin-top:12px;max-width:70%">
+          We manage estates, apartments and small businesses with efficiency. Rent collection, maintenance coordination, tenant communication and operational oversight — handled.
+        </p>
+        <div style="margin-top:20px;display:flex;gap:12px">
+          <a class="cta" href="#contact">Request a Quote</a>
+          <a href="#services" style="background:rgba(255,255,255,0.12);padding:10px 14px;border-radius:10px;color:var(--white);font-weight:700">Our Services</a>
+        </div>
+        <div style="margin-top:28px;color:rgba(255,255,255,0.9)">
+          <strong>Why choose XYZ?</strong>
+          <ul style="margin-top:8px;color:rgba(255,255,255,0.9)">
+            <li>Transparent fees & monthly statements</li>
+            <li>Local team — fast maintenance response</li>
+            <li>Tenant screening & lease administration</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3 style="margin:0 0 10px 0">Find a Service / Property</h3>
+        <p class="muted">Search available properties or request a service from our team.</p>
+        <div style="margin-top:14px" class="search-row">
+          <input id="searchInput" placeholder="Search by location, property or service" />
+          <button id="searchBtn">Search</button>
+        </div>
+
+        <hr style="margin:18px 0;border:none;border-top:1px solid #eef6ff" />
+        <div>
+          <strong>Quick contact</strong>
+          <p class="muted" style="margin:8px 0">Call / WhatsApp: <a href="tel:+256700000000">+256 700 000 000</a></p>
+          <p class="muted">Email: <a href="mailto:info@xyzpropertydata.com">info@xyzpropertydata.com</a></p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <h2>Services we offer</h2>
+        <p class="muted">Comprehensive property and business management services tailored for landlords and small enterprises.</p>
+        <div class="grid" style="margin-top:18px">
+          <div class="card">
+            <h3>Residential Property Management</h3>
+            <p class="muted">Full management of apartments and estates — tenant finding, rent collection, inspections and maintenance.</p>
+          </div>
+          <div class="card">
+            <h3>Commercial Property Management</h3>
+            <p class="muted">Managing leases, service charges and vendor coordination for commercial landlords.</p>
+          </div>
+          <div class="card">
+            <h3>Business Operations Support</h3>
+            <p class="muted">Operational oversight, bookkeeping coordination and business process improvements for small businesses.</p>
+          </div>
+          <div class="card">
+            <h3>Landlord Onboarding</h3>
+            <p class="muted">Simple step-by-step onboarding for new landlords — documentation, inventories, and expectations.</p>
+          </div>
+          <div class="card">
+            <h3>Tenant Screening & Lease Admin</h3>
+            <p class="muted">Background checks, verification and lease preparation to protect your investment.</p>
+          </div>
+          <div class="card">
+            <h3>Maintenance & Vendor Management</h3>
+            <p class="muted">Rapid maintenance response and trusted vendors to keep properties in top condition.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Properties -->
+    <section id="properties">
+      <div class="container">
+        <h2>Featured Properties</h2>
+        <p class="muted">A sample of properties we manage. Replace these with your real listings later.</p>
+        <div class="properties" style="margin-top:18px">
+
+          <div class="prop card">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="Estate image"/>
+            <h4 style="margin:10px 0 0 0">Sunrise Estate — 3 bed apartment</h4>
+            <div class="meta muted">
+              <span>Kampala, Ntinda</span>
+              <span><strong>Ugx 1,200,000</strong>/mo</span>
+            </div>
+          </div>
+
+          <div class="prop card">
+            <img src="https://images.unsplash.com/photo-1560184897-6e9f2b9b4a16?w=1200&q=80&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="Apartment"/>
+            <h4 style="margin:10px 0 0 0">Garden View Flats — 2 bed</h4>
+            <div class="meta muted">
+              <span>Kampala, Makindye</span>
+              <span><strong>Ugx 850,000</strong>/mo</span>
+            </div>
+          </div>
+
+          <div class="prop card">
+            <img src="https://images.unsplash.com/photo-1598928506310-8f6b1f6c9d7f?w=1200&q=80&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="House"/>
+            <h4 style="margin:10px 0 0 0">Hilltop House — 4 bed</h4>
+            <div class="meta muted">
+              <span>Entebbe</span>
+              <span><strong>Ugx 3,600,000</strong>/mo</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <h2>About XYZ</h2>
+        <p class="muted">XYZ Property & Data Services helps property owners and small businesses run smoothly. Our team combines local knowledge with simple, transparent processes.</p>
+        <div style="display:flex;gap:18px;margin-top:18px;flex-wrap:wrap">
+          <div class="card" style="flex:1;min-width:240px">
+            <h3>Our Mission</h3>
+            <p class="muted">To protect owners’ investments by providing reliable, honest and efficient management services.</p>
+          </div>
+          <div class="card" style="flex:1;min-width:240px">
+            <h3>Our Values</h3>
+            <p class="muted">Transparency · Responsiveness · Professionalism · Care</p>
+          </div>
+          <div class="card" style="flex:1;min-width:240px">
+            <h3>How we work</h3>
+            <p class="muted">We assign a single point of contact, provide monthly statements and handle tenant communication on your behalf.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog">
+      <div class="container">
+        <h2>Insights & Guides</h2>
+        <p class="muted">Short guides and market updates for landlords and business owners.</p>
+        <div class="grid" style="margin-top:18px">
+          <div class="card">
+            <h3>How to prepare your property for rent</h3>
+            <p class="muted">Practical checklist to make your unit attractive to tenants and increase occupancy.</p>
+          </div>
+          <div class="card">
+            <h3>Simple bookkeeping for small businesses</h3>
+            <p class="muted">Organize your records and make financial decisions with confidence.</p>
+          </div>
+          <div class="card">
+            <h3>Top maintenance tips landlords should know</h3>
+            <p class="muted">Small regular checks that prevent expensive repairs later.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <h2>Contact us</h2>
+        <p class="muted">Send a message and our team will get back to you within 24-48 hours.</p>
+        <div class="contact-grid" style="margin-top:18px">
+          <div>
+            <form id="contactForm">
+              <input type="text" id="name" placeholder="Your full name" required />
+              <input type="email" id="email" placeholder="Your email" required />
+              <input type="tel" id="phone" placeholder="Phone / WhatsApp" />
+              <input type="text" id="subject" placeholder="Subject (e.g., Property management)" />
+              <textarea id="message" placeholder="How can we help?" rows="6" required></textarea>
+              <button type="submit">Send message</button>
+              <p id="formMsg" style="margin-top:10px;color:green;display:none">Message sent (demo). We'll contact you shortly.</p>
+            </form>
+          </div>
+
+          <aside class="card">
+            <h3>Office</h3>
+            <p class="muted">Kampala, Uganda</p>
+            <p class="muted">Call / WhatsApp: <a href="tel:+256700000000">+256 700 000 000</a></p>
+            <p class="muted">Email: <a href="mailto:info@xyzpropertydata.com">info@xyzpropertydata.com</a></p>
+            <hr style="margin:12px 0;border:none;border-top:1px solid #eef6ff" />
+            <h4>How to get started</h4>
+            <ol class="muted">
+              <li>Request a quote via the contact form</li>
+              <li>We schedule property onboarding and inspection</li>
+              <li>We sign the management agreement and start managing</li>
+            </ol>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div>© <strong>XYZ Property & Data Services</strong> — All rights reserved.</div>
+        <div style="font-size:13px;color:#98a0b3">Built as a starter site • Customize colors, fonts & content</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Basic interactivity for the single-file starter site
+    document.getElementById('searchBtn').addEventListener('click', function(){
+      const q = document.getElementById('searchInput').value.trim();
+      if(!q) return alert('Please enter a search term');
+      alert('Search demo: "'+q+'"\nThis is a demo search. We can wire a real search/filter later.');
+    });
+
+    // Contact form demo (no backend) — this just prevents submission and shows a message
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      // Basic validation
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message){
+        alert('Please fill the required fields');
+        return;
+      }
+      // Show demo message
+      const msg = document.getElementById('formMsg');
+      msg.style.display = 'block';
+      // Reset form (demo)
+      this.reset();
+      // In a production site, send data to a backend or use a service like Formspree, Netlify Forms, or an API.
+    });
+
+    // Smooth scrolling for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if(href.length > 1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
